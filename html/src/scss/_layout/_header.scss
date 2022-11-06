@@ -1,0 +1,575 @@
+/**
+	
+	LAYOUT :: HEADER
+
+	Note: Here are basic settings only!
+	Most header layouts are achived using helper classes (see Documentation->Utils).
+
+	Dropdowns are handled by _core/components/_dropdown.scss
+	All dropdowns are globally the same, is just a feeling/illusion that looks different on header.
+	Any header dropdown class can be used on any other dropdown (including deep navigation).
+
+	Functions like header reveal/sticky/over are all handled by Stepofweb plugin:
+	 _plugins/sow_header.scss and GULP/src/plugins/sow-header/sow_header.js
+
+**/
+.header,
+#header {
+    font-size: 	$header-font-size;
+	z-index: 	$header-z-index;
+}
+
+// repainting reason
+/*body.header-scroll-reveal header.main-nav,
+header.main-nav,
+body.header-over body.header-scroll-reveal #header,
+body.header-over #header {
+	transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}*/
+
+header.main-nav,
+#header {
+	position: relative;
+	background-color: #ffffff;
+}
+
+	header.main-nav a,
+	#header a {
+		text-decoration: none;
+	}
+
+	header.main-nav .nav-item > a,
+	#header .nav-item > a {
+		position: relative;
+	}
+
+	header.main-nav .nav-item .dropdown-menu,
+	#header .nav-item .dropdown-menu {
+		min-width: 200px;
+	}
+		header.main-nav .nav-item>.dropdown-menu,
+		#header .nav-item>.dropdown-menu {
+			margin: 0;
+		}
+
+
+/* 
+	Main Links :: Icon Indicator
+*/
+@if $header-main-links-caret-enable == true {
+
+	header.main-nav .navbar-nav .nav-link.dropdown-toggle:not(.nav-link-caret-hide):before,
+	#header .navbar-nav .nav-link.dropdown-toggle:not(.nav-link-caret-hide):before {
+	    font-family: 	"#{$header-main-links-caret-webfont}";
+	    content: 		icon-unquote($header-main-links-caret-main-ico);
+
+	    font-size: 12px;
+	    width: 12px;
+	    height: 12px;
+	    margin-top: -6px;
+
+	    position: absolute;
+	    line-height: 1em;
+	    top: 50%;
+		border: 0;
+
+		@if $global-rtl-enable == false {
+			right: 8px;
+		} @else {
+			left: 8px;
+		}
+	}
+
+}
+
+	/* icon align fix */
+	header.main-nav .navbar-nav .nav-link>i,
+	#header .navbar-nav .nav-link>i {
+		vertical-align: text-top;
+	}
+
+
+
+// scroll reveal : default shadow
+body.header-scroll-reveal.user-scrolled-down #header:not(.shadow-none) {
+	box-shadow: $box-shadow-xs;
+}
+
+
+
+
+/* 
+	Navbar Toggler
+*/
+header.main-nav .navbar-toggler,
+#header .navbar-toggler {
+	
+	width: 					60px;
+	height: 				$header-nav-height;
+	max-width: 				$header-nav-height;
+	
+	border-top-color: 		transparent;
+	border-bottom-color: 	transparent;
+
+	@if $global-rtl-enable == false {
+		border-left-color: transparent;
+		margin-left:  -15px;
+		margin-right:   8px;
+	} @else {
+		border-right-color: transparent;
+		margin-left:    8px;
+		margin-right: -15px;
+	}
+
+}
+	header.main-nav .navbar-toggler>svg,
+	#header .navbar-toggler>svg {
+		display: none;
+	}
+		header.main-nav .navbar-toggler[aria-expanded="false"]>svg:first-child,
+		#header .navbar-toggler[aria-expanded="false"]>svg:first-child {
+			display: inline-block;
+		}
+		header.main-nav .navbar-toggler[aria-expanded="true"]>svg:last-child,
+		#header .navbar-toggler[aria-expanded="true"]>svg:last-child {
+			display: inline-block;
+		}
+
+
+
+
+
+
+
+
+
+
+/*
+	
+	HEADER TOGGLE 
+
+*/
+body.header-hide.btn-header-toggle-show .btn-header-toggle {
+
+	animation: _btnslidedown .5s ease-out forwards;
+
+	position: fixed !important;
+	/*top: 15px !important;*/
+
+	@if $global-rtl-enable == false {
+		right: 20px !important;
+	} @else {
+		left: 20px !important;
+	}
+
+}
+
+@keyframes _btnslidedown {
+	from 	{ top:-100px; }
+	to 		{ top:15px; }
+}
+
+/* hide spacer added by js */
+body.layout-admin #wrapper_content.js-animation-enable {
+	transition: all 150ms linear; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+	
+	Responsive
+
+**/
+// DESKTOP
+@media only screen and (min-width: map-get($grid-breakpoints, "lg")) { // xl: 1200px, lg: 992px, md: 768px
+
+	header.main-nav nav.navbar:not(.h-auto),
+	#header nav.navbar:not(.h-auto) {
+		min-height: $header-nav-height;
+	}
+
+
+	/*
+		Logo max width
+	*/
+	header.main-nav .navbar-brand>img,
+	#header .navbar-brand>img {
+		/*max-height: 70px !important;*/
+		height: auto !important;
+	}
+
+
+
+	/* 
+		Dropdown mega menu / full width
+	*/
+	header.main-nav .nav-item.dropdown-mega,
+	#header .nav-item.dropdown-mega {
+		position: inherit;
+	}
+
+
+	/* 
+		Main Navigation Links
+	*/
+	header.main-nav:not(.navbar-sm) .navbar-nav,
+	#header .navbar-nav:not(.navbar-sm) {
+		height: $header-nav-height; /* avoid unwanted margins on wrong text/icon size - dropdown issue on hover */
+	}
+
+		header.main-nav:not(.navbar-sm) .navbar-nav .nav-link,
+		#header .navbar-nav .nav-link {
+			cursor: pointer;
+			padding: ($header-nav-height/2 - 12px) 15px;
+		}
+
+		/* icon spacing */
+		header.main-nav .navbar-nav .nav-link>i+span,
+		#header .navbar-nav .nav-link>i+span {
+			display: inline-block;
+
+			@if $global-rtl-enable == false {
+				padding-left: 10px;
+			} @else {
+				padding-right: 10px;
+			}
+		}
+
+	@if $header-main-links-caret-enable == true {
+
+		header.main-nav .navbar-nav .nav-link.dropdown-toggle:not(.nav-link-caret-hide),
+		#header .navbar-nav .nav-link.dropdown-toggle:not(.nav-link-caret-hide) {
+			@if $global-rtl-enable == false {
+				padding-right: 30px;
+			} @else {
+				padding-left: 30px;
+			}
+		}
+
+	}
+
+
+
+	// Small - used under search
+	header.main-nav.navbar-sm .navbar-nav,
+	#header .navbar-nav.navbar-sm {
+		height: 55px;
+	}
+		header.main-nav.navbar-sm .navbar-nav .nav-link,
+		#header .navbar-nav.navbar-sm .nav-link {
+			cursor: pointer;
+			padding: 15px;
+		}
+		header.main-nav.navbar-sm .navbar-nav .nav-item:first-child .nav-link,
+		#header .navbar-nav.navbar-sm .nav-item:first-child .nav-link {
+			@if $global-rtl-enable == false {
+				padding-left: 0;
+			} @else {
+				padding-right: 0;
+			}
+		}
+
+
+	// fix for Opera - is seing 1px space!
+	// This hould be on Desktop only!
+	// Else will create a bug on mobile!
+	header.main-nav .navbar-nav a.nav-link,
+	#header .navbar-nav a.nav-link {
+		height: 100%;
+	}
+
+
+
+	/* 
+		Brand|Logo
+		Frontend only
+	*/
+	body:not(.layout-admin) header.main-nav .navbar-brand,
+	body:not(.layout-admin) #header .navbar-brand {
+		@if $global-rtl-enable == false {
+			margin-right: 50px;
+		} @else {
+			margin-left: 50px;
+		}
+	}
+
+
+	// open dropdown up instead of down
+	header.main-nav .dropdown-menu.dropdown-menu-up,
+	#header .dropdown-menu.dropdown-menu-up {
+		top:auto !important;
+		bottom:0 !important;
+	}
+
+	// used to position very long dropdown childs
+	@each $val in $header-dropdown-top-negative-pos {
+		header.main-nav .dropdown-menu.dropdown-menu-up-n#{$val},
+		#header .dropdown-menu.dropdown-menu-up-n#{$val} {
+			top:-#{$val}px !important;
+			bottom:auto !important;
+		}
+	}
+
+}
+
+
+
+
+// MOBILE
+@media only screen and (max-width: map-get($grid-breakpoints, "lg") - 1px) { // xl: 1200px, lg: 992px, md: 768px
+
+	/* 
+		Dropdowns : Remove Shadows
+	*/
+	header.main-nav .navbar-nav .dropdown-menu,
+	#header .navbar-nav .dropdown-menu {
+
+		@each $vendor in $vendors {
+			#{$vendor}box-shadow: none !important;
+		}
+
+	}
+
+
+	/* 
+		Border Separator
+	*/
+	header.main-nav .navbar-collapse,
+	#header .navbar-collapse {
+		border-top: $navbar-light-toggler-border-color 1px solid;
+	}
+
+
+	/* 
+		@FIX
+		Main Links :: Icon Indicator
+	*/
+	@if $header-main-links-caret-enable == true {
+		header.main-nav .navbar-nav .nav-link.dropdown-toggle:not(.nav-link-caret-hide):before,
+		#header .navbar-nav .nav-link.dropdown-toggle:not(.nav-link-caret-hide):before {
+			top: 20px;
+		}
+	}
+
+
+	/* if max width was set */
+	header.main-nav .navbar-nav .dropdown-menu,
+	#header .navbar-nav .dropdown-menu {
+		width: 100% !important;
+		max-width: 100% !important;
+	}
+
+
+	/* 
+		Childs padding
+	*/
+	header.main-nav .navbar-nav .dropdown-menu>.dropdown-item>.dropdown-menu,
+	#header .navbar-nav .dropdown-menu>.dropdown-item>.dropdown-menu {
+		@if $global-rtl-enable == false {
+			padding-left: 15px !important;
+		} @else {
+			padding-right: 15px !important;
+		}
+	}
+
+	/*
+		Logo max width
+	*/
+	header.main-nav .navbar-brand>img,
+	#header .navbar-brand>img {
+		width: auto;
+		height: auto;
+		max-width: 100px !important;
+		/*max-height: 60px !important;*/
+	}
+
+
+
+	/*
+	
+		Styling
+
+	*/
+	$navbar-xs-height: 		60px !default;
+
+
+	// second navbar collapse fix (jumpy)
+	header.main-nav .navbar-collapse.collapsing {
+		display: none !important;
+	}
+
+
+	/* appearing animation */
+	header.main-nav .navbar-collapse.navbar-animate-bouncein,
+	#header .navbar-collapse.navbar-animate-bouncein {
+		animation: __utilBounceIn .25s ease-out forwards;
+	}
+	header.main-nav .navbar-collapse.navbar-animate-fadein,
+	#header .navbar-collapse.navbar-animate-fadein {
+		animation: __utilFadeIn .25s ease-out forwards
+	}
+		#header .navbar-collapse.collapsing {
+			display: none !important;
+			transition: none !important;
+		}
+
+
+	header.main-nav .navbar-collapse.show,
+	#header .navbar-collapse.show {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: $gray-100;
+		padding: 15px;
+		
+		z-index: 99999;
+	}
+		header.main-nav .navbar-collapse.show>.navbar-nav,
+		#header .navbar-collapse.show>.navbar-nav {
+			padding: 15px;
+			position: absolute;
+			background-color: $white;
+
+			top: $navbar-xs-height + 15px;
+			left:15px;
+			right:15px;
+			bottom:15px;
+
+			box-shadow: $box-shadow-lg;
+
+			overflow-y: scroll;
+			overflow-x: hidden;
+			-webkit-overflow-scrolling: touch;
+			height: auto;
+			max-height: 100%;
+
+		}
+			/* dark navbar */
+			header.main-nav .navbar-dark .navbar-collapse.show>.navbar-nav a,
+			#header .navbar-dark .navbar-collapse.show>.navbar-nav a {
+				color: $gray-700;
+			}
+
+		/* mobile bar (we add logo & toggler button) */
+		header.main-nav .navbar-collapse.show>.navbar-xs,
+		#header .navbar-collapse.show>.navbar-xs {
+			background-color: transparent;
+			margin-top: -7px;
+
+			display: block !important;
+			border-top: 0;
+			height: $navbar-xs-height;
+
+			/*box-shadow: $box-shadow-md;*/
+
+		}
+			header.main-nav .navbar-collapse.show>.navbar-xs.sticky-top,
+			#header .navbar-collapse.show>.navbar-xs.sticky-top {
+				margin: -15px -15px 0 -15px !important;
+			}
+
+
+			/* styling navbar-toggler */
+			header.main-nav .navbar-collapse.show>.navbar-xs>.navbar-toggler,
+			#header .navbar-collapse.show>.navbar-xs>.navbar-toggler {
+				width: $navbar-xs-height;
+				height: $navbar-xs-height;
+				border: 0;
+				margin: 0;
+
+				@if $global-rtl-enable == false {
+					float: right;
+				} @else {
+					float: left;
+				}
+
+			}
+
+			/* logo */
+			header.main-nav .navbar-collapse.show>.navbar-xs>.navbar-brand,
+			#header .navbar-collapse.show>.navbar-xs>.navbar-brand {
+				padding: 0 15px;
+			}
+			header.main-nav .navbar-collapse.show>.navbar-xs>.navbar-brand>img,
+			header.main-nav .navbar-collapse.show>.navbar-xs>.navbar-brand,
+			#header .navbar-collapse.show>.navbar-xs>.navbar-brand>img,
+			#header .navbar-collapse.show>.navbar-xs>.navbar-brand {
+				width: auto;
+				height: $navbar-xs-height;
+
+			}
+
+
+		/* styling main links */
+		header.main-nav .navbar-collapse.show>.navbar-nav>.nav-item.dropdown>.nav-link,
+		#header .navbar-collapse.show>.navbar-nav>.nav-item.dropdown>.nav-link {
+			font-weight: 400;
+			font-size: 18px;
+			
+		}
+			/* only with dropdown */
+			header.main-nav .navbar-collapse.show>.navbar-nav>.nav-item.dropdown>.nav-link.dropdown-toggle,
+			#header .navbar-collapse.show>.navbar-nav>.nav-item.dropdown>.nav-link.dropdown-toggle {
+				color: $gray-400;
+			}
+			/* hide dropdown icon indicator */
+			header.main-nav .navbar-collapse.show>.navbar-nav>.nav-item.dropdown>.nav-link:before,
+			#header .navbar-collapse.show>.navbar-nav>.nav-item.dropdown>.nav-link:before {
+				display: none !important;
+			}
+
+		/* first level open by default */
+		header.main-nav .navbar-collapse.show>.navbar-nav>.nav-item.dropdown>.dropdown-menu,
+		#header .navbar-collapse.show>.navbar-nav>.nav-item.dropdown>.dropdown-menu {
+			display: block !important;
+			//margin-bottom: 30px !important;
+			margin-bottom: 10px !important;
+		}
+
+}

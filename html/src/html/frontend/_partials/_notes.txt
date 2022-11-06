@@ -1,0 +1,3 @@
+Not replaced (on purpose):
+	header-option-dark.html
+	layout-boxed-0.html

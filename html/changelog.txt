@@ -1,0 +1,106 @@
+# Note: For a more friendly format, please see
+# the HTML version: /documentation/changelog.html
+# or the online version
+#################################################
+
+@Version 	3.0.6
+@Date		Tuesday, December 3, 2019
+@Author		Dorin Grigoras
+	* New: 		Christmas Shop Concept page
+	* New: 		Landing 7 (Clean SAAS start page)
+	* New: 		SOW : Util – new function added Element Cloner function
+	* New: 		SOW : Util – new function added Element Util function
+	* New: 		Vendor : Prismjs - code highlighter
+	* New: 		Notebook-like Grid Class
+	* New: 		Admin page: account-settings.html
+	* New: 		Admin page: admin-staff.html
+	* New: 		Admin pages: message-*.html
+	
+	* Update 	(GULP users only) Important rewrite in Flaticon (Smarty Core Icons)!
+					Variables.scss : quotes only removed for icons:
+					$rating-icon-empty: \f173 !default;     (instead of "\f173" !default;)
+					$rating-icon-half: \f191 !default;       (instead of "\f191" !default;)
+					$rating-icon-full: \f190 !default;       (instead of "\f190" !default;)
+					$header-main-links-caret-main-ico: \f1c4 !default;       (instead of "\f1c4" !default;)
+					Very important to also replace icon folder: src/scss/_vendors/_sow/flaticon/.
+					Added icon-unquote() mixin function to src/scss/_core/mixins.scss so icons are using it from now!
+					For this update, src/scss/_core/ folder must be replaced - many icons are updated to avoid browser display issues!
+	
+	* Update:	removed additional shadow for soft buttons on active and focus state
+	* Update:	SOW : Toast plugin - replaced default Smarty Utility classes with default Bootstrap classes (nothing affected)
+	* Update:	SOW : Ajax Confirm - new params
+	* Update:	SOW : Button Toggle - allow temporized on ajax requests ( back to previous state for a another request(s) )
+	* Update: 	Minor CSS updates/changes (like dropdown spacings)
+	* Update: 	added $toast-font-size to src/scss/variables.scss
+	* Update: 	GULP : will now copy js/css to html_frontend/assets/ only if html_frontend directory exists
+	* Update:	GULP : remove javascript comments on minified files
+	* Update:	GULP : prepend current version to core & vendor (js and css)
+	* Update:	Grid adjustment/spacings (shop-index-3.html & shop-index-4.html) featured on mobile
+	* Update:	package.json: npm remove popper.js (ununsed, bootstrap already has it packed) <br>
+	* Update:	package.json: npx npm-update-all 
+					:: Affected by update: 1 plugin (chart.js : 2 deprecated variables)
+					:: changes: src/js/vendors/vendor.chartjs.js
+					:: 		- label position (bugxif in Smarty controller when legend was set "true")
+					:: 		- categoryPercentage & barPercentage : moved to [data][datasets]
+					:: 		- added RTL for tooltip & legend
+					:: npm output before update:
+				Package                     Current  Wanted  Latest  Location
+				@simonwep/pickr               1.4.4   1.4.6   1.4.6  smarty
+				autoprefixer                  9.6.5   9.7.0   9.7.0  smarty
+				chart.js                      2.8.0   2.9.1   2.9.1  smarty
+				datatables.net-buttons-bs4    1.6.0   1.6.1   1.6.1  smarty
+				jarallax                     1.11.1  1.12.0  1.12.0  smarty
+				open                          6.4.0   6.4.0   7.0.0  smarty
+				pdfmake                      0.1.60  0.1.61  0.1.61  smarty
+				swiper                        5.0.4   5.2.0   5.2.0  smarty
+
+				--- --- ---
+				npm audit
+				found 0 vulnerabilities in 20730 scanned packages
+
+@Version 	3.0.5
+@Date		Wednesday, October 23, 2019
+@Author		Dorin Grigoras
+	* Fix: 	Fullajax mobile - close navigation on click
+
+@Version 	3.0.4
+@Date		Wednesday, October 23, 201
+@Author		Dorin Grigoras
+	* New: 		Full Ajax 13 Frontend Pages (as a demonstration of Smarty Power)
+	* New: 		Footer variation #4
+	* Update:	Added Social Icons: instagram, twitch, spotify, github, soundcloud
+	* Update:	SOW Header - added onepage navigation function (close navbar if .scroll-to class is present)
+	* Fix:		Small wrong typos in documentation
+	* Fix: 		Dropdown links spacing for no deep dropdowns
+	* Fix: 		.text-rotate class in RTL mode
+
+@Version 	3.0.3
+@Date		Monday, October 21, 2019
+@Author		Dorin Grigoras
+	* New: 		Niche Caffe
+	* Update: 	Added fadein animation alias class to .navbar-collapse 
+	* Update: 	SOW : GRPD - using Google Cookies rules.
+	* Update: 	Smarty Core now set a default "sow" `SameSite & Secure` Cookie according to new Google rules.
+	* Update: 	Removed default "bouncein" animation on mobile main menu to solve possible issues on new header layouts. 
+		  		Now available using classes: navbar-animation-fadein, navbar-animation-bouncein
+	* Update: 	Documentation layout - adaptable using flex utilities (so right boxes are not anynmore shrink).
+	* Change: 	indigo color from #6610f2 to #533be2 (scss/_variables.scss)
+	* Fix: 		Slimscroll Vendor : z-index is hardcoded and a css rule was added to be lower than #header
+
+@Version 	3.0.2
+@Date		Wednesday, October 16, 2019
+@Author		Dorin Grigoras
+	* New: 		Shop Category 4
+	* New: 		Added SEED_PROJECT folder - ready to start a project
+	* Fix: 		Firefox Select icon (src/scss/_core/components/_forms.scss)
+	* Fix: 		`.scrollable-vertical` class visibility 	(src/scss/_core/utils/_scroll.scss)
+
+@Version 	3.0.1
+@Date		Wednesday, October 16, 2019
+@Author		Dorin Grigoras
+	* New: 		Forum Pages
+
+@Version 	3.0.0
+@Date		Tuesday, October 15, 2019
+@Author		Dorin Grigoras
+	* Initial Release

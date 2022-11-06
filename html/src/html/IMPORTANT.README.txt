@@ -1,0 +1,14 @@
+
+	+++++++++++++++++++++++++++++++++++++++++++++++
+		THIS IS BETA! 
+		Curently used to generate frontend demos!
+	+++++++++++++++++++++++++++++++++++++++++++++++
+
+	The purpose of this file is to replace in all html files
+	the header, footer, logo, etc! Variables can be set in gulp.config.settings.js
+	gulp_plugins -> build_html
+
+
+	Used by GULP:
+		gulp html:build_frontend
+		gulp html:build_admin

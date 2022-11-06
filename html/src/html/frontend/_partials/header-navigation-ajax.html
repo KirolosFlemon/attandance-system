@@ -1,0 +1,243 @@
+								<!-- 
+
+									Note: because Smarty demo menu is big, ajax dropdown is used
+									to load json/html dropdowns! 
+
+									Please use Features->Headers->Variants to copy the full dropdown menu if needed!
+
+									Or simply remove the following attributes from each Main link and copy/paste 
+									the dropdown content where you see the comment:  "dropdown ajax content : *": 
+										data-dropdown-ajax-source
+										data-dropdown-ajax-mode
+
+								-->
+								<!-- mobile only image + simple search (d-block d-sm-none) -->
+								<li class="nav-item d-block d-sm-none">
+
+									<!-- image -->
+									<div class="mb-4">
+										<img width="600" height="600" class="img-fluid" src="demo.files/svg/artworks/people_crossbrowser.svg" alt="...">
+									</div>
+
+									<!-- search -->
+									<form method="get" action="#!search" class="input-group-over mb-5 bg-light p-2 form-control-pill">
+										<input type="text" name="keyword" value="" placeholder="Quick search..." class="form-control border-dashed">
+										<button class="btn btn-primary btn-ghost fi fi-search p-0 ml-2 mr-2 w--50 h--50"></button>
+									</form>
+
+								</li>
+
+
+								<!-- home -->
+								<li class="nav-item dropdown active">
+
+									<!-- 
+										+++++++++++++++++++++++++++++++++++++++++++++++++++
+										if dropdown ajax not used, remove attributes:
+											data-dropdown-ajax-source
+											data-dropdown-ajax-mode
+
+										WARNING : AJAX CACHE!
+											data-dropdown-ajax-cache="true"
+											This is using localStorage cache, 30 min. lifetime!
+											Will repopulate on page load! 
+
+											While you develop the page, add to body:
+											data-dropdown-ajax-cache-ignore="true" 
+											else, on page refresh you'll always see the same data!
+										+++++++++++++++++++++++++++++++++++++++++++++++++++
+									-->
+									<a href="#" id="mainNavHome" class="nav-link dropdown-toggle" 
+										data-toggle="dropdown" 
+										aria-haspopup="true" 
+										aria-expanded="false" 
+										data-dropdown-ajax-source="_ajax/dd_menu_home.json" 
+										data-dropdown-ajax-mode="json" 
+										data-dropdown-ajax-cache-id="header_home">
+										Home
+									</a>
+
+									<div aria-labelledby="mainNavHome" class="dropdown-menu dropdown-menu-clean dropdown-menu-hover">
+										<!-- dropdown ajax content : json -->
+									</div>
+
+								</li>
+
+
+								<!-- pages -->
+								<li class="nav-item dropdown">
+
+									<!-- 
+										+++++++++++++++++++++++++++++++++++++++++++++++++++
+										if dropdown ajax not used, remove attributes:
+											data-dropdown-ajax-source
+											data-dropdown-ajax-mode
+
+										WARNING : AJAX CACHE!
+											data-dropdown-ajax-cache="true"
+											This is using localStorage cache, 30 min. lifetime!
+											Will repopulate on page load! 
+											
+											While you develop the page, add to body:
+											data-dropdown-ajax-cache-ignore="true" 
+											else, on page refresh you'll always see the same data!
+										+++++++++++++++++++++++++++++++++++++++++++++++++++
+									-->
+									<a href="#" id="mainNavPages" class="nav-link dropdown-toggle" 
+										data-toggle="dropdown" 
+										aria-haspopup="true" 
+										aria-expanded="false" 
+										data-dropdown-ajax-source="_ajax/dd_menu_pages.json" 
+										data-dropdown-ajax-mode="json" 
+										data-dropdown-ajax-cache="true">
+										Pages
+									</a>
+								
+									<div aria-labelledby="mainNavPages" class="dropdown-menu dropdown-menu-clean dropdown-menu-hover">
+										<!-- dropdown ajax content : json -->
+									</div>
+
+								</li>
+
+
+								<!-- features -->
+								<li class="nav-item dropdown">
+
+									<!-- 
+										+++++++++++++++++++++++++++++++++++++++++++++++++++
+										if dropdown ajax not used, remove attributes:
+											data-dropdown-ajax-source
+											data-dropdown-ajax-mode
+
+										WARNING : AJAX CACHE!
+											data-dropdown-ajax-cache="true"
+											This is using localStorage cache, 30 min. lifetime!
+											Will repopulate on page load! 
+											
+											While you develop the page, add to body:
+											data-dropdown-ajax-cache-ignore="true" 
+											else, on page refresh you'll always see the same data!
+										+++++++++++++++++++++++++++++++++++++++++++++++++++
+									-->
+									<a href="#" id="mainNavFeatures" class="nav-link dropdown-toggle" 
+										data-toggle="dropdown" 
+										aria-haspopup="true" 
+										aria-expanded="false" 
+										data-dropdown-ajax-source="_ajax/dd_menu_features.json" 
+										data-dropdown-ajax-mode="json" 
+										data-dropdown-ajax-cache="true">
+										Features
+									</a>
+
+									<div aria-labelledby="mainNavFeatures" class="dropdown-menu dropdown-menu-clean dropdown-menu-hover">
+										<!-- dropdown ajax content : json -->
+									</div>
+
+								</li>
+
+
+								<!-- shop + blog -->
+								<li class="nav-item dropdown dropdown-mega">
+
+									<!-- 
+										+++++++++++++++++++++++++++++++++++++++++++++++++++
+										if dropdown ajax not used, remove attributes:
+											data-dropdown-ajax-source
+											data-dropdown-ajax-mode
+
+										WARNING : AJAX CACHE!
+											data-dropdown-ajax-cache="true"
+											This is using localStorage cache, 30 min. lifetime!
+											Will repopulate on page load! 
+											
+											While you develop the page, add to body:
+											data-dropdown-ajax-cache-ignore="true" 
+											else, on page refresh you'll always see the same data!
+										+++++++++++++++++++++++++++++++++++++++++++++++++++
+									-->
+									<a href="#" id="mainNavShop" class="nav-link dropdown-toggle" 
+										data-toggle="dropdown" 
+										aria-haspopup="true" 
+										aria-expanded="false" 
+										data-dropdown-ajax-source="_ajax/dd_menu_shop_blog.html"
+										data-dropdown-ajax-mode="html" 
+										data-dropdown-ajax-cache="true">
+										Shop &amp; Blog
+									</a>
+
+									<div aria-labelledby="mainNavShop" class="dropdown-menu dropdown-menu-hover dropdown-menu-clean">
+										<!-- dropdown ajax content : html -->
+									</div>
+
+								</li>
+
+
+								<!-- documentation -->
+								<li class="nav-item dropdown">
+
+									<!-- 
+										+++++++++++++++++++++++++++++++++++++++++++++++++++
+										if dropdown ajax not used, remove attributes:
+											data-dropdown-ajax-source
+											data-dropdown-ajax-mode
+
+										WARNING : AJAX CACHE!
+											data-dropdown-ajax-cache="true"
+											This is using localStorage cache, 30 min. lifetime!
+											Will repopulate on page load! 
+											
+											While you develop the page, add to body:
+											data-dropdown-ajax-cache-ignore="true" 
+											else, on page refresh you'll always see the same data!
+										+++++++++++++++++++++++++++++++++++++++++++++++++++
+									-->
+									<a href="#" id="mainNavDocumentation" class="nav-link dropdown-toggle nav-link-caret-hide" 
+										data-toggle="dropdown" 
+										aria-haspopup="true" 
+										aria-expanded="false" 
+										data-dropdown-ajax-source="_ajax/dd_menu_documentation.html"
+										data-dropdown-ajax-mode="html" 
+										data-dropdown-ajax-cache="true">
+										<span>Documentation</span>
+									</a>
+
+									<div aria-labelledby="mainNavDocumentation" class="dropdown-menu dropdown-menu-clean dropdown-menu-hover w--300">
+										<!-- dropdown ajax content : html -->
+									</div>
+
+								</li>
+
+
+
+
+								<!-- social : mobile only (d-block d-sm-none)-->
+								<li class="nav-item d-block d-sm-none text-center mb-4">
+
+									<h3 class="h6 text-muted">Follow Us</h3>
+
+									<a href="#!" class="btn btn-sm btn-facebook transition-hover-top mb-2 rounded-circle text-white" rel="noopener">
+										<i class="fi fi-social-facebook"></i> 
+									</a>
+
+									<a href="#!" class="btn btn-sm btn-twitter transition-hover-top mb-2 rounded-circle text-white" rel="noopener">
+										<i class="fi fi-social-twitter"></i> 
+									</a>
+
+									<a href="#!" class="btn btn-sm btn-linkedin transition-hover-top mb-2 rounded-circle text-white" rel="noopener">
+										<i class="fi fi-social-linkedin"></i> 
+									</a>
+
+									<a href="#!" class="btn btn-sm btn-youtube transition-hover-top mb-2 rounded-circle text-white" rel="noopener">
+										<i class="fi fi-social-youtube"></i> 
+									</a>
+
+								</li>
+
+
+
+								<!-- buy now : mobile only (d-block d-sm-none)-->
+								<li class="nav-item d-block d-sm-none">
+									<a target="_blank" href="#buy_now" class="btn btn-block btn-primary shadow-none text-white m-0">
+										Buy Now
+									</a>
+								</li>
